@@ -1,0 +1,11 @@
+sources:
+  - name: klt
+    database: dlt_data
+    schema: kobo_dev
+    tables:
+      - name: kobo_asset
+        columns:
+          - name: uid
+            data_tests:
+              - unique
+              - not_null

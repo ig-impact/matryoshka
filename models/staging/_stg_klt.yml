@@ -1,0 +1,10 @@
+models:
+  - name: stg_klt__kobo_asset
+    description: Kobo 'asset' or 'project'
+    columns:
+      - name: created_at
+        description: Creation time (UTC)
+      - name: modified_at
+        description: Modified time (UTC)
+      - name: loaded_at
+        description: Loaded time (UTC)
