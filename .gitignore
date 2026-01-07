@@ -1,0 +1,40 @@
+# dbt
+target/
+dbt_packages/
+dbt_internal_packages/
+logs/
+*.log
+.user.yml
+
+# Python
+.venv/
+venv/
+env/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+*.egg-info/
+dist/
+build/
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Environment & Secrets
+.env
+.env.*
+!.env.example
+*.key
+*.pem
+credentials.json
+profiles.yml
