@@ -8,3 +8,16 @@ models:
         description: Modified time (UTC)
       - name: loaded_at
         description: Loaded time (UTC)
+  - name: stg_klt__kobo_asset_content__survey
+    description: Form survey questions
+    columns:
+      - name: asset_id
+        description: Foreign key to stg_klt__kobo_asset
+      - name: asset_load_id
+        description: DLT load identifier
+      - name: loaded_at
+        description: Loaded time (UTC)
+      - name: xpath
+        description: XPath location of question in form structure
+      - name: question_name
+        description: Question identifier/name
