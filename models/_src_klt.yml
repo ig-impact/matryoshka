@@ -15,6 +15,10 @@ sources:
             description: DLT load timestamp
             data_tests:
               - not_null
+          - name: asset_uid
+            description: FK for kobo asset
+            data_tests:
+              - not_null
       - name: kobo_asset_for_submissions
         description: Asset stats for submissions
         columns:
