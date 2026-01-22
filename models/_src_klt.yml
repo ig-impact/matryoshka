@@ -59,6 +59,8 @@ sources:
             description: DLT record identifier
           - name: _dlt_load_id
             description: DLT load timestamp
+            data_tests:
+              - not_null
       - name: kobo_asset_content__survey
         description: Form survey questions (nested table)
         columns:
@@ -68,3 +70,7 @@ sources:
             description: XPath location of question in form structure
           - name: name
             description: Question identifier/name
+          - name: _dlt_load_id
+            description: DLT load timestamp
+            data_tests:
+              - not_null
