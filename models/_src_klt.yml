@@ -51,7 +51,7 @@ sources:
         description: Bridge table for linking questions, choices, external choices and settings
         columns:
           - name: asset_uid
-            description: Foreign key to kobo_asset
+            description: Foreign key to kobo_asset; exactly one row per asset in this table (repeated only in downstream survey nesting)
             data_tests:
               - unique
               - not_null
