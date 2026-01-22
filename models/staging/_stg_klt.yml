@@ -2,12 +2,31 @@ models:
   - name: stg_klt__kobo_asset
     description: Kobo 'asset' or 'project'
     columns:
+      - name: asset_id
+        description: Unique asset identifier from Kobo (one row per asset)
+        data_tests:
+          - unique
+          - not_null
+      - name: asset_load_id
+        description: DLT load identifier
       - name: created_at
         description: Creation time (UTC)
       - name: modified_at
         description: Modified time (UTC)
+      - name: deployed_at
+        description: Deployment time (UTC)
       - name: loaded_at
         description: Loaded time (UTC)
+      - name: last_submission_at
+        description: Timestamp of last submission (UTC); assets without submissions are filtered upstream
+        data_tests:
+          - not_null
+      - name: asset_name
+        description: Asset display name
+      - name: deployment_active
+        description: Deployment activated flag
+      - name: count_submissions
+        description: Total submissions recorded
   - name: stg_klt__kobo_asset_content__survey
     description: Form survey questions
     columns:
@@ -21,3 +40,22 @@ models:
         description: XPath location of question in form structure
       - name: question_name
         description: Question identifier/name
+  - name: stg_klt__kobo_submission
+    description: Kobo submission
+    columns:
+      - name: submission_id
+        description: Unique submission identifier
+        data_tests:
+          - unique
+          - not_null
+          - relationships:
+              to: source('klt', 'kobo_submission')
+              field: _id
+      - name: submission_load_id
+        description: DLT load identifier for submission
+        data_tests:
+          - not_null
+      - name: loaded_at
+        description: Loaded time (UTC)
+        data_tests:
+          - not_null
