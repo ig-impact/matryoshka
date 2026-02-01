@@ -1,0 +1,14 @@
+services:
+  dbt:
+    image: ghcr.io/dbt-labs/dbt-postgres:1.9.latest
+    working_dir: /usr/app
+    environment:
+      DBT_DBNAME: ${DBT_DBNAME}
+      DBT_HOST: ${DBT_HOST}
+      DBT_USER: ${DBT_USER}
+      DBT_PASSWORD: ${DBT_PASSWORD}
+      DBT_SCHEMA_DEV: ${DBT_SCHEMA_DEV}
+      DBT_SCHEMA_PROD: ${DBT_SCHEMA_PROD}
+    volumes:
+      - ./:/usr/app
+    command: ["build"]
