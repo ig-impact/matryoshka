@@ -43,6 +43,13 @@ models:
   - name: stg_klt__kobo_submission
     description: Kobo submission
     columns:
+      - name: asset_id
+        description: Foreign key to stg_klt__kobo_asset_stats
+        data_tests:
+          - relationships:
+              arguments:
+                to: ref('stg_klt__kobo_asset_stats')
+                field: asset_id
       - name: submission_id
         description: Unique submission identifier
         data_tests:
@@ -56,3 +63,23 @@ models:
         description: Loaded time (UTC)
         data_tests:
           - not_null
+      - name: submitted_at
+        description: Submission time (UTC)
+  - name: stg_klt__kobo_asset_stats
+    description: Kobo asset submission statistics
+    columns:
+      - name: asset_id
+        description: Asset identifier matching submission records
+        data_tests:
+          - relationships:
+              arguments:
+                to: ref('stg_klt__kobo_submission')
+                field: asset_id
+      - name: asset_load_id
+        description: DLT load identifier
+      - name: loaded_at
+        description: Loaded time (UTC)
+      - name: last_submission_at
+        description: Timestamp of last submission (UTC)
+      - name: count_submissions
+        description: Total submissions recorded
