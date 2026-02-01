@@ -47,9 +47,8 @@ models:
         description: Foreign key to stg_klt__kobo_asset_stats
         data_tests:
           - relationships:
-              arguments:
-                to: ref('stg_klt__kobo_asset_stats')
-                field: asset_id
+              to: ref('stg_klt__kobo_asset_stats')
+              field: asset_id
       - name: submission_id
         description: Unique submission identifier
         data_tests:
@@ -72,9 +71,8 @@ models:
         description: Asset identifier matching submission records
         data_tests:
           - relationships:
-              arguments:
-                to: ref('stg_klt__kobo_submission')
-                field: asset_id
+              to: ref('stg_klt__kobo_submission')
+              field: asset_id
       - name: asset_load_id
         description: DLT load identifier
       - name: loaded_at
