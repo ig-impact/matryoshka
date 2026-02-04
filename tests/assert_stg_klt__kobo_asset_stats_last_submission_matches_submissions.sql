@@ -26,8 +26,5 @@ JOIN
     observed_stats
     ON computed_stats.asset_id = observed_stats.asset_id
 WHERE
-    -- Observed stats can lag because deleted submissions do not update last_submission_at.
-    computed_stats.computed_last_submission_at IS NULL
-    OR observed_stats.observed_last_submission_at IS NULL
-    OR computed_stats.computed_last_submission_at
-    > observed_stats.observed_last_submission_at
+    computed_stats.computed_last_submission_at
+    IS DISTINCT FROM observed_stats.observed_last_submission_at

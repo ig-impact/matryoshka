@@ -24,7 +24,5 @@ JOIN
     observed_stats
     ON computed_stats.asset_id = observed_stats.asset_id
 WHERE
-    computed_stats.computed_count_submissions IS NULL
-    OR observed_stats.observed_count_submissions IS NULL
-    OR computed_stats.computed_count_submissions
-    < observed_stats.observed_count_submissions
+    computed_stats.computed_count_submissions
+    IS DISTINCT FROM observed_stats.observed_count_submissions
