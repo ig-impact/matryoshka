@@ -1,0 +1,21 @@
+# VCS / local-only
+.git
+.github
+
+# Local env and secrets
+.env
+.envrc
+.venv/
+
+# dbt generated artifacts
+target/
+logs/
+
+# dbt installed packages (recreated by dbt deps in image)
+dbt_packages/
+dbt_internal_packages/
+
+# Python cache
+__pycache__/
+*.pyc
+.pytest_cache/
