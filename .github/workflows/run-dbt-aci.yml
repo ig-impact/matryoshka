@@ -60,13 +60,14 @@ jobs:
             --registry-username ${{ secrets.ACR_USERNAME }} \
             --registry-password ${{ secrets.ACR_PASSWORD }} \
             --secure-environment-variables \
+              DBT_PROFILES_DIR="/usr/app" \
               DBT_DBNAME="${{ secrets.DBT_DBNAME }}" \
               DBT_HOST="${{ secrets.DBT_HOST }}" \
               DBT_USER="${{ secrets.DBT_USER }}" \
               DBT_PASSWORD="${{ secrets.DBT_PASSWORD }}" \
               DBT_SCHEMA_DEV="${{ vars.DBT_SCHEMA_DEV }}" \
               DBT_SCHEMA_PROD="${{ vars.DBT_SCHEMA_PROD }}" \
-            --command-line "dbt ${{ env.DBT_COMMAND }} --target ${{ env.DBT_TARGET }}"
+            --command-line "uv run dbt ${{ env.DBT_COMMAND }} --target ${{ env.DBT_TARGET }} --profiles-dir /usr/app"
 
       - name: Follow container logs
         run: |
