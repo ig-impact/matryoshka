@@ -1,4 +1,4 @@
-FROM ghcr.io/dbt-labs/dbt-postgres:1.9.latest
+FROM ghcr.io/dbt-labs/dbt-postgres:1.11.latest
 
 WORKDIR /usr/app
 
