@@ -29,8 +29,12 @@ SELECT
 FROM
     src
 WHERE
-    metadata__submission__root_uuid IS NOT NULL
-    OR metadata__instance__root_uuid IS NOT NULL
-    OR metadata__submission__status IS NOT NULL
-    OR metadata__submission__submitted_by IS NOT NULL
-    OR metadata__uuid IS NOT NULL
+    COALESCE(
+        metadata__submission__root_uuid,
+        metadata__instance__root_uuid,
+        metadata__uuid
+    ) IS NOT NULL
+    AND COALESCE(
+        metadata__asset_uid,
+        metadata__asset_file__uid
+    ) IS NOT NULL
